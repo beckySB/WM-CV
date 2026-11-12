@@ -4,257 +4,238 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>William Martinez | Curriculum Vitae</title>
-  <meta name="description" content="William Martinez. Executive leader in strategy, operations and growth.">
-  <meta name="theme-color" content="#0a1530">
+  <meta name="description" content="William Martinez. Operations and strategy leader.">
+  <meta name="theme-color" content="#0b1630">
   <meta property="og:title" content="William Martinez">
-  <meta property="og:description" content="Executive leader in strategy, operations and growth.">
+  <meta property="og:description" content="Operations and strategy leader.">
   <meta property="og:url" content="https://willmartinez.win">
+  <meta property="og:image" content="https://willmartinez.win/img/will-d-cool.jpg">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
 <!--
   HOW TO EDIT
-  All wording on this page is sample content. Look for "EDIT" comments and
-  replace the text between the tags. Keep the tags and class names as they are.
+  All wording is sample content. Search for "EDIT" and replace the text between tags.
+  Photos live in /public/img. To add one to a loop, copy an <img> line and change the file name.
 -->
 
   <header class="topbar" id="top">
-    <a class="mark" href="#top" aria-label="Back to top">WM</a>
+    <a class="mark" href="#top">W. <em>Martinez</em></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#profile">Profile</a>
-      <a href="#experience">Experience</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#career">Career</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#study">Study</a>
+      <a href="#write" class="nav-cta">Write to Will</a>
     </nav>
   </header>
 
   <!-- HERO -->
   <section class="hero">
     <canvas class="loop loop-silk" data-loop="silk" aria-hidden="true"></canvas>
-    <div class="hero-vignette" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <div class="monogram" aria-hidden="true"><span>W</span><span>M</span></div>
-      <p class="eyebrow">Curriculum Vitae</p>
-      <h1>William <em>Martinez</em></h1>
-      <!-- EDIT: headline -->
-      <p class="role">Strategy &nbsp;·&nbsp; Operations &nbsp;·&nbsp; Growth</p>
-      <div class="hero-actions">
-        <a class="btn btn-solid" href="#contact">Get in touch</a>
-        <button class="btn btn-line" type="button" data-print>Download CV</button>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="kicker"><span class="rule"></span>Curriculum vitae</p>
+        <h1><span class="first">William</span><span class="last">Martinez</span></h1>
+        <!-- EDIT: one line summary -->
+        <p class="intro">Operations and strategy leader. Fifteen years of turning
+          careful plans into results people can feel.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#write">Get in touch</a>
+          <button class="btn btn-ghost" type="button" data-print>Save as PDF</button>
+        </div>
       </div>
+
+      <figure class="hero-photo">
+        <!-- EDIT: photo loop. Images cross fade in this order -->
+        <div class="photo-loop" data-photo-loop data-interval="5200">
+          <img src="/img/will-d-cool.jpg" alt="William Martinez" class="on">
+          <img src="/img/will-a-cool.jpg" alt="" loading="lazy">
+          <img src="/img/will-c-midnight.jpg" alt="" loading="lazy">
+          <img src="/img/will-b-teal.jpg" alt="" loading="lazy">
+          <img src="/img/will-d-cobalt.jpg" alt="" loading="lazy">
+        </div>
+        <div class="photo-ticks" aria-hidden="true"></div>
+        <figcaption>Gulf Coast, 2026</figcaption>
+      </figure>
     </div>
-    <a class="scroll-cue" href="#profile" aria-label="Scroll to profile"><span></span></a>
   </section>
+
+  <!-- FILMSTRIP LOOP -->
+  <div class="filmstrip" aria-hidden="true">
+    <div class="film-track">
+      <img src="/img/will-a-powder.jpg" alt=""><span class="film-word">steady</span>
+      <img src="/img/will-c-cobalt.jpg" alt=""><span class="film-word">direct</span>
+      <img src="/img/will-d-teal.jpg" alt=""><span class="film-word">considered</span>
+      <img src="/img/will-a-midnight.jpg" alt=""><span class="film-word">trusted</span>
+      <img src="/img/will-b-cool.jpg" alt=""><span class="film-word">grounded</span>
+      <!-- duplicate set for a seamless loop -->
+      <img src="/img/will-a-powder.jpg" alt=""><span class="film-word">steady</span>
+      <img src="/img/will-c-cobalt.jpg" alt=""><span class="film-word">direct</span>
+      <img src="/img/will-d-teal.jpg" alt=""><span class="film-word">considered</span>
+      <img src="/img/will-a-midnight.jpg" alt=""><span class="film-word">trusted</span>
+      <img src="/img/will-b-cool.jpg" alt=""><span class="film-word">grounded</span>
+    </div>
+  </div>
 
   <main>
 
-    <!-- 01 PROFILE -->
-    <section class="section" id="profile">
-      <div class="wrap profile-grid">
-        <figure class="portrait reveal">
-          <div class="portrait-frame">
-            <!-- EDIT: to add a photo, place it at public/img/portrait.jpg and
-                 replace the <canvas> line below with:
-                 <img src="/img/portrait.jpg" alt="Portrait of William Martinez"> -->
-            <canvas class="loop" data-loop="orbit" aria-hidden="true"></canvas>
-            <span class="portrait-initials" aria-hidden="true">WM</span>
-          </div>
-          <figcaption>Portrait coming soon</figcaption>
-        </figure>
-        <div class="content">
-          <span class="num">01</span>
-          <h2 class="h-section">Profile</h2>
+    <!-- ABOUT -->
+    <section class="block about" id="about">
+      <div class="wrap about-grid">
+        <h2 class="side-title reveal">About</h2>
+        <div class="about-body">
           <!-- EDIT: profile -->
-          <p class="lede reveal">A steady, results driven leader with more than fifteen years of experience
-            building teams, sharpening operations and turning ambitious plans into measurable growth.</p>
-          <p class="reveal">William brings a calm, considered approach to complex challenges. He is known for clear
-            communication, sound judgement and an ability to earn the trust of executives, partners and
-            front line teams alike. His work spans multi site operations, commercial strategy and
-            organisational change, always with a focus on people and long term value.</p>
-          <dl class="facts reveal">
-            <div><dt>Based in</dt><dd>United States</dd></div>
-            <div><dt>Experience</dt><dd>15+ years</dd></div>
-            <div><dt>Languages</dt><dd>English, Spanish</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTERLUDE: engraved rosette loop + quote -->
-    <section class="interlude">
-      <svg class="rosette" data-loop="rosette" viewBox="-200 -200 400 400" aria-hidden="true"></svg>
-      <!-- EDIT: personal motto or quote -->
-      <blockquote class="reveal">
-        <p>&ldquo;Good operations are quiet. You notice them in the results.&rdquo;</p>
-        <cite>William Martinez</cite>
-      </blockquote>
-    </section>
-
-    <!-- HIGHLIGHTS -->
-    <section class="stats" aria-label="Career highlights">
-      <!-- EDIT: numbers. data-to is the final value, data-prefix and data-suffix are optional -->
-      <div class="wrap stats-row">
-        <div class="stat reveal"><strong data-count data-to="15" data-suffix="+">15+</strong><span>Years leading</span></div>
-        <div class="stat reveal"><strong data-count data-to="140">140</strong><span>People led</span></div>
-        <div class="stat reveal"><strong data-count data-to="3.1" data-prefix="$" data-suffix="M" data-decimals="1">$3.1M</strong><span>Costs reduced</span></div>
-        <div class="stat reveal"><strong data-count data-to="22" data-suffix="%">22%</strong><span>Productivity lift</span></div>
-      </div>
-    </section>
-
-    <!-- 02 EXPERIENCE -->
-    <section class="section section-dark has-loop" id="experience">
-      <canvas class="loop loop-bg" data-loop="contour" aria-hidden="true"></canvas>
-      <div class="wrap two-col">
-        <div class="label">
-          <span class="num">02</span>
-          <h2 class="h-section">Experience</h2>
-        </div>
-        <!-- EDIT: copy a whole <li class="reveal"> ... </li> block to add a role -->
-        <ol class="timeline">
-          <li class="reveal">
-            <div class="when">2020 to Present</div>
-            <div class="what">
-              <h3>Director of Operations</h3>
-              <p class="org">Meridian Group</p>
-              <ul>
-                <li>Leads operations across five regional sites and a team of 140.</li>
-                <li>Introduced a performance framework that lifted productivity by 22%.</li>
-                <li>Partnered with finance to reduce operating costs by $3.1M over two years.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="reveal">
-            <div class="when">2015 to 2020</div>
-            <div class="what">
-              <h3>Senior Manager, Strategy</h3>
-              <p class="org">Harbor &amp; Vale Partners</p>
-              <ul>
-                <li>Shaped growth strategy for clients in logistics, retail and hospitality.</li>
-                <li>Led market entry work that opened two new revenue lines.</li>
-                <li>Mentored a team of eight analysts and associates.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="reveal">
-            <div class="when">2010 to 2015</div>
-            <div class="what">
-              <h3>Operations Manager</h3>
-              <p class="org">Sterling Atlantic</p>
-              <ul>
-                <li>Ran daily operations for a high volume distribution centre.</li>
-                <li>Cut order turnaround time by 30% through process redesign.</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 03 EXPERTISE -->
-    <section class="section" id="expertise">
-      <div class="wrap two-col">
-        <div class="label">
-          <span class="num">03</span>
-          <h2 class="h-section">Expertise</h2>
-        </div>
-        <div class="content">
-          <div class="cards">
-            <article class="card reveal">
-              <svg class="glyph g-lead" viewBox="0 0 64 64" aria-hidden="true">
-                <circle cx="32" cy="32" r="26"/><circle class="spin" cx="32" cy="6" r="3"/>
-                <circle cx="32" cy="32" r="4"/>
-              </svg>
-              <h3>Leadership</h3>
-              <p>Building and guiding high performing teams through growth and change.</p>
-            </article>
-            <article class="card reveal">
-              <svg class="glyph g-ops" viewBox="0 0 64 64" aria-hidden="true">
-                <rect class="bar b1" x="12" y="20" width="6" height="32"/>
-                <rect class="bar b2" x="24" y="20" width="6" height="32"/>
-                <rect class="bar b3" x="36" y="20" width="6" height="32"/>
-                <rect class="bar b4" x="48" y="20" width="6" height="32"/>
-                <line x1="8" y1="54" x2="58" y2="54"/>
-              </svg>
-              <h3>Operations</h3>
-              <p>Process design, quality, cost control and multi site management.</p>
-            </article>
-            <article class="card reveal">
-              <svg class="glyph g-strat" viewBox="0 0 64 64" aria-hidden="true">
-                <circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="14"/>
-                <g class="needle"><path d="M32 12 L36 32 L32 52 L28 32 Z"/></g>
-              </svg>
-              <h3>Strategy</h3>
-              <p>Market analysis, business planning and clear, practical roadmaps.</p>
-            </article>
-            <article class="card reveal">
-              <svg class="glyph g-part" viewBox="0 0 64 64" aria-hidden="true">
-                <circle class="ring r1" cx="25" cy="32" r="14"/><circle class="ring r2" cx="39" cy="32" r="14"/>
-              </svg>
-              <h3>Partnerships</h3>
-              <p>Long standing relationships with clients, vendors and stakeholders.</p>
-            </article>
-          </div>
-          <!-- EDIT: skills -->
-          <ul class="tags reveal" aria-label="Skills">
-            <li>P&amp;L Management</li><li>Change Management</li><li>Budgeting</li>
-            <li>Negotiation</li><li>KPI Design</li><li>Lean Operations</li>
-            <li>Stakeholder Relations</li><li>Hiring &amp; Coaching</li>
+          <p class="big reveal"><span class="drop">W</span>illiam is the person teams call when things need to run
+            better, quietly and for good. He pairs a sharp eye for process with a genuine interest in people.</p>
+          <p class="reveal">Across multi site operations, commercial strategy and organisational change, he has built
+            a reputation for clear communication and sound judgement. He earns trust with executives, partners and
+            front line teams alike, and keeps a steady focus on long term value.</p>
+          <ul class="facts reveal">
+            <li><span>Based in</span>United States</li>
+            <li><span>Languages</span>English, Spanish</li>
+            <li><span>Open to</span>Leadership and advisory roles</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 04 EDUCATION -->
-    <section class="section section-soft" id="education">
-      <div class="wrap two-col">
-        <div class="label">
-          <span class="num">04</span>
-          <h2 class="h-section">Education</h2>
-        </div>
-        <div class="content">
-          <!-- EDIT: education and certifications -->
-          <div class="edu reveal">
-            <div class="when">2013</div>
-            <div><h3>Master of Business Administration</h3><p class="org">University Name</p></div>
-          </div>
-          <div class="edu reveal">
-            <div class="when">2009</div>
-            <div><h3>Bachelor of Science, Business Management</h3><p class="org">University Name</p></div>
-          </div>
-          <div class="edu reveal">
-            <div class="when">Certified</div>
-            <div><h3>Lean Six Sigma Green Belt</h3><p class="org">Professional Certification</p></div>
-          </div>
+    <!-- NUMBERS -->
+    <section class="numbers" aria-label="Career highlights">
+      <!-- EDIT: data-to is the final value; data-prefix and data-suffix are optional -->
+      <div class="wrap numbers-row">
+        <div class="n reveal"><strong data-count data-to="15" data-suffix="+">15+</strong><span>years in leadership</span></div>
+        <div class="n reveal"><strong data-count data-to="140">140</strong><span>people led at once</span></div>
+        <div class="n reveal"><strong data-count data-to="3.1" data-prefix="$" data-suffix="M" data-decimals="1">$3.1M</strong><span>in costs removed</span></div>
+        <div class="n reveal"><strong data-count data-to="22" data-suffix="%">22%</strong><span>productivity gain</span></div>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section class="block career has-loop" id="career">
+      <canvas class="loop loop-bg" data-loop="contour" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <header class="block-head reveal">
+          <h2>Career</h2>
+          <p>Where the work has happened.</p>
+        </header>
+        <!-- EDIT: copy a whole <article class="role reveal"> block to add a role -->
+        <div class="roles">
+          <article class="role reveal">
+            <div class="years"><span>2020</span><em>to</em><span>Now</span></div>
+            <div class="role-main">
+              <h3>Director of Operations</h3>
+              <p class="org">Meridian Group</p>
+            </div>
+            <ul>
+              <li>Leads operations across five regional sites and a team of 140.</li>
+              <li>Introduced a performance framework that lifted productivity by 22%.</li>
+              <li>Partnered with finance to remove $3.1M in operating costs over two years.</li>
+            </ul>
+          </article>
+          <article class="role reveal">
+            <div class="years"><span>2015</span><em>to</em><span>2020</span></div>
+            <div class="role-main">
+              <h3>Senior Manager, Strategy</h3>
+              <p class="org">Harbor &amp; Vale Partners</p>
+            </div>
+            <ul>
+              <li>Shaped growth strategy for clients in logistics, retail and hospitality.</li>
+              <li>Led market entry work that opened two new revenue lines.</li>
+              <li>Mentored a team of eight analysts and associates.</li>
+            </ul>
+          </article>
+          <article class="role reveal">
+            <div class="years"><span>2010</span><em>to</em><span>2015</span></div>
+            <div class="role-main">
+              <h3>Operations Manager</h3>
+              <p class="org">Sterling Atlantic</p>
+            </div>
+            <ul>
+              <li>Ran daily operations for a high volume distribution centre.</li>
+              <li>Cut order turnaround time by 30% through process redesign.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- 05 CONTACT -->
-    <section class="section section-dark contact has-loop" id="contact">
-      <canvas class="loop loop-bg" data-loop="silk" data-variant="low" aria-hidden="true"></canvas>
-      <div class="wrap narrow reveal">
-        <span class="num">05</span>
-        <h2 class="h-section">Let&rsquo;s talk.</h2>
-        <p class="lede">Open to leadership roles, advisory work and thoughtful conversations.</p>
-        <!-- EDIT: contact details -->
-        <div class="contact-links">
-          <a href="mailto:hello@willmartinez.win">hello@willmartinez.win</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- QUOTE -->
+    <section class="interlude">
+      <svg class="rosette" data-loop="rosette" viewBox="-200 -200 400 400" aria-hidden="true"></svg>
+      <!-- EDIT: quote -->
+      <blockquote class="reveal">
+        <p>Good operations are quiet. You notice them in the results.</p>
+      </blockquote>
+    </section>
+
+    <!-- STRENGTHS -->
+    <section class="block strengths" id="strengths">
+      <div class="wrap">
+        <header class="block-head reveal">
+          <h2>Strengths</h2>
+          <p>What he brings to the table.</p>
+        </header>
+        <!-- EDIT: strengths -->
+        <ol class="str-list">
+          <li class="reveal"><h3>Leadership</h3><p>Builds and guides high performing teams through growth and change.</p></li>
+          <li class="reveal"><h3>Operations</h3><p>Process design, quality, cost control and multi site management.</p></li>
+          <li class="reveal"><h3>Strategy</h3><p>Market analysis, business planning and clear, practical roadmaps.</p></li>
+          <li class="reveal"><h3>Partnerships</h3><p>Long standing relationships with clients, vendors and stakeholders.</p></li>
+        </ol>
+        <!-- EDIT: skills -->
+        <p class="skills reveal">P&amp;L management <b>/</b> Change management <b>/</b> Budgeting <b>/</b> Negotiation
+          <b>/</b> KPI design <b>/</b> Lean operations <b>/</b> Stakeholder relations <b>/</b> Hiring and coaching</p>
+      </div>
+    </section>
+
+    <!-- STUDY -->
+    <section class="block study" id="study">
+      <div class="wrap study-grid">
+        <div class="study-photo reveal">
+          <div class="photo-loop" data-photo-loop data-interval="4600">
+            <img src="/img/will-b-cool.jpg" alt="" class="on" loading="lazy">
+            <img src="/img/will-d-teal.jpg" alt="" loading="lazy">
+            <img src="/img/will-a-midnight.jpg" alt="" loading="lazy">
+          </div>
         </div>
+        <div>
+          <header class="block-head reveal">
+            <h2>Study</h2>
+            <p>Education and certification.</p>
+          </header>
+          <!-- EDIT: education -->
+          <dl class="edu">
+            <div class="reveal"><dt>2013</dt><dd><h3>Master of Business Administration</h3><p>University Name</p></dd></div>
+            <div class="reveal"><dt>2009</dt><dd><h3>Bachelor of Science, Business Management</h3><p>University Name</p></dd></div>
+            <div class="reveal"><dt>Cert.</dt><dd><h3>Lean Six Sigma Green Belt</h3><p>Professional Certification</p></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="write has-loop" id="write">
+      <canvas class="loop loop-bg" data-loop="silk" data-variant="low" aria-hidden="true"></canvas>
+      <div class="wrap write-inner reveal">
+        <p class="kicker"><span class="rule"></span>Correspondence</p>
+        <h2>Write to <em>Will.</em></h2>
+        <!-- EDIT: contact details -->
+        <a class="mail" href="mailto:hello@willmartinez.win">hello@willmartinez.win</a>
+        <p class="links"><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </section>
 
   </main>
 
   <footer class="footer">
-    <span>&copy; <span id="year">2026</span> William Martinez</span>
-    <a href="#top">Back to top</a>
+    <span>William Martinez, <span id="year">2026</span></span>
+    <a href="#top">Top</a>
   </footer>
 
   <script src="/js/loops.js" defer></script>

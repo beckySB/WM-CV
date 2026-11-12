@@ -1,4 +1,4 @@
-/* Looping visuals: silk ribbons, contour lines, orbit portrait and engraved rosette.
+/* Looping visuals: silk ribbons, contour lines and an engraved rosette.
    Each loop only animates while on screen and stays still for reduced motion users. */
 (function () {
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -93,31 +93,6 @@
     });
   }
 
-  /* Portrait placeholder: orbiting points of light inside the arch */
-  function orbit(canvas) {
-    canvasLoop(canvas, function (ctx, w, h, t) {
-      var g = ctx.createRadialGradient(w * .5, h * .38, 0, w * .5, h * .5, h * .75);
-      g.addColorStop(0, '#2a5bb0'); g.addColorStop(.55, '#12285a'); g.addColorStop(1, '#0a1530');
-      ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
-      var cx = w / 2, cy = h * .46;
-      for (var ring = 0; ring < 5; ring++) {
-        var rx = w * (.18 + ring * .075), ry = rx * .38;
-        var tilt = -.35 + ring * .14;
-        ctx.save(); ctx.translate(cx, cy); ctx.rotate(tilt);
-        ctx.strokeStyle = 'rgba(219, 229, 243, ' + (.16 - ring * .02) + ')';
-        ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, TAU); ctx.stroke();
-        for (var p = 0; p < 2; p++) {
-          var a = t * (.35 - ring * .045) + p * Math.PI + ring;
-          var px = Math.cos(a) * rx, py = Math.sin(a) * ry;
-          var glow = ctx.createRadialGradient(px, py, 0, px, py, 10);
-          glow.addColorStop(0, 'rgba(219, 229, 243, .9)'); glow.addColorStop(1, 'rgba(219, 229, 243, 0)');
-          ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(px, py, 10, 0, TAU); ctx.fill();
-        }
-        ctx.restore();
-      }
-    });
-  }
-
   /* Banknote style guilloche rosette, drawn once and turned with CSS */
   function rosette(svg) {
     var ns = 'http://www.w3.org/2000/svg';
@@ -142,7 +117,7 @@
     layer('ro ro-inner', 8, 60, 12, 8, TAU / 8 / 8);
   }
 
-  var makers = { silk: silk, contour: contour, orbit: orbit, rosette: rosette };
+  var makers = { silk: silk, contour: contour, rosette: rosette };
   document.querySelectorAll('[data-loop]').forEach(function (el) {
     var fn = makers[el.dataset.loop];
     if (fn) fn(el);
