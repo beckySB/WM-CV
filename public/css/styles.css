@@ -11,7 +11,7 @@
   --text: #0b202f;
   --muted: #4f6070;
   --line: rgba(58, 106, 135, .28);
-  --serif: "Fraunces", Georgia, serif;
+  --serif: "Newsreader", Georgia, serif;
   --sans: "Plus Jakarta Sans", system-ui, sans-serif;
   --mono: "Space Mono", ui-monospace, monospace;
   --radius: 5px;
@@ -30,10 +30,10 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 a { color: inherit; }
-/* Fraunces italic draws a swash tail on every "f", so the site uses upright styles only */
+/* Upright styles only; emphasis uses weight and color */
 em, i, cite { font-style: normal; }
 img { display: block; max-width: 100%; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -.02em; margin: 0; line-height: 1.04; font-variation-settings: "SOFT" 50, "WONK" 0; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -.02em; margin: 0; line-height: 1.04; }
 .wrap { max-width: 1200px; margin: 0 auto; }
 .micro { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
 .micro i { font-style: normal; color: var(--gold); padding: 0 4px; }
