@@ -11,7 +11,7 @@ All wording is in `public/index.html`. Search for `EDIT` comments and replace th
 ## Files
 - `public/css/styles.css` design
 - `public/js/loops.js` animated backgrounds (silk ribbons, contour lines, rosette)
-- `public/img/` photos of Will, cropped from family photos and toned in brand colours
+- `public/img/` photos of Will, cropped from family photos and toned in brand colors
 - `public/js/main.js` scroll reveals, counters, print button
 - `wrangler.jsonc` Cloudflare config and custom domain
 
