@@ -1,4 +1,4 @@
-/* Looping visuals: silk ribbons, contour lines and an engraved rosette.
+/* Looping visuals: trichome macro, silk ribbons, contour lines and an engraved rosette.
    Each loop only animates while on screen and stays still for reduced motion users. */
 (function () {
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -87,9 +87,69 @@
             + Math.sin(u * 9 - i * .2 - t * .08) * 6;
           x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
-        ctx.strokeStyle = 'rgba(142, 166, 204, ' + (0.05 + 0.05 * Math.sin(i * .6 + t * .3)) + ')';
+        ctx.strokeStyle = (i % 5 === 0 ? 'rgba(209, 167, 81, ' : 'rgba(122, 139, 120, ') + (0.07 + 0.05 * Math.sin(i * .6 + t * .3)) + ')';
         ctx.stroke();
       }
+    });
+  }
+
+
+  /* Macro trichome field: glassy glands on fine stalks, icy blue with amber */
+  function trichome(canvas) {
+    var seed = 7;
+    function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+    var glands = [], bokeh = [];
+    for (var i = 0; i < 30; i++) {
+      var z = rnd();
+      glands.push({
+        x: rnd(), y: rnd(), z: z,
+        r: 3 + z * 12, stalk: 40 + z * 110, lean: (rnd() - .5) * .5,
+        amber: rnd() < .22, ph: rnd() * TAU, sp: .15 + rnd() * .25
+      });
+    }
+    for (var j = 0; j < 14; j++) bokeh.push({ x: rnd(), y: rnd(), r: 30 + rnd() * 90, ph: rnd() * TAU, amber: rnd() < .3 });
+    glands.sort(function (a, b) { return a.z - b.z; });
+
+    canvasLoop(canvas, function (ctx, w, h, t) {
+      bokeh.forEach(function (b) {
+        var x = b.x * w + Math.sin(t * .05 + b.ph) * 30, y = b.y * h + Math.cos(t * .04 + b.ph) * 20;
+        var g = ctx.createRadialGradient(x, y, 0, x, y, b.r);
+        var c = b.amber ? '209, 167, 81' : '111, 149, 173';
+        g.addColorStop(0, 'rgba(' + c + ', .10)'); g.addColorStop(1, 'rgba(' + c + ', 0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, b.r, 0, TAU); ctx.fill();
+      });
+      glands.forEach(function (d) {
+        var drift = ((d.y - t * .006 * (0.4 + d.z)) % 1 + 1) % 1;
+        var bx = d.x * w + Math.sin(t * d.sp + d.ph) * 6;
+        var by = drift * (h + 200) - 100 + d.stalk;
+        var sway = d.lean + Math.sin(t * d.sp * 1.3 + d.ph) * .08;
+        var hx = bx + Math.sin(sway) * d.stalk, hy = by - Math.cos(sway) * d.stalk;
+        var a = .18 + d.z * .5;
+        // stalk
+        ctx.strokeStyle = 'rgba(207, 224, 234, ' + (a * .45) + ')';
+        ctx.lineWidth = .4 + d.z * .9;
+        ctx.beginPath(); ctx.moveTo(bx, by);
+        ctx.quadraticCurveTo(bx + Math.sin(sway) * d.stalk * .4, by - d.stalk * .55, hx, hy); ctx.stroke();
+        // glassy head
+        var r = d.r * (1 + Math.sin(t * .6 + d.ph) * .03);
+        var g = ctx.createRadialGradient(hx - r * .35, hy - r * .35, r * .05, hx, hy, r);
+        if (d.amber) {
+          g.addColorStop(0, 'rgba(255, 244, 214, ' + a + ')');
+          g.addColorStop(.45, 'rgba(209, 167, 81, ' + (a * .7) + ')');
+          g.addColorStop(1, 'rgba(120, 82, 30, ' + (a * .15) + ')');
+        } else {
+          g.addColorStop(0, 'rgba(245, 250, 255, ' + a + ')');
+          g.addColorStop(.45, 'rgba(160, 196, 218, ' + (a * .55) + ')');
+          g.addColorStop(1, 'rgba(58, 106, 135, ' + (a * .12) + ')');
+        }
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(hx, hy, r, 0, TAU); ctx.fill();
+        ctx.strokeStyle = 'rgba(245, 243, 237, ' + (a * .35) + ')'; ctx.lineWidth = .7;
+        ctx.stroke();
+        // specular glint
+        var gl = .5 + .5 * Math.sin(t * 1.1 + d.ph * 3);
+        ctx.fillStyle = 'rgba(255, 255, 255, ' + (a * .8 * gl) + ')';
+        ctx.beginPath(); ctx.arc(hx - r * .38, hy - r * .4, Math.max(.8, r * .14), 0, TAU); ctx.fill();
+      });
     });
   }
 
@@ -117,7 +177,7 @@
     layer('ro ro-inner', 8, 60, 12, 8, TAU / 8 / 8);
   }
 
-  var makers = { silk: silk, contour: contour, rosette: rosette };
+  var makers = { trichome: trichome, silk: silk, contour: contour, rosette: rosette };
   document.querySelectorAll('[data-loop]').forEach(function (el) {
     var fn = makers[el.dataset.loop];
     if (fn) fn(el);
